@@ -1,10 +1,10 @@
-import React from 'react'
-import { useSelector, useDispatch, RootStateOrAny } from 'react-redux'
-import { TouchableOpacity } from 'react-native'
+import React from "react";
+import { useSelector, useDispatch, RootStateOrAny } from "react-redux";
+import { TouchableOpacity } from "react-native";
 
-import { toggleStar } from '../../store/actions'
+import { toggleStar } from "../../store/actions";
 
-import Cover from '../Cover'
+import Cover from "../Cover";
 
 import {
   Card,
@@ -14,29 +14,40 @@ import {
   Model,
   MakeYear,
   StarIcon,
-} from './styles'
+} from "./styles";
 
 export interface CarProps {
-  id: string
-  model: string
-  make: string
-  year: string
-  coverURL: string
-  starred?: boolean
+  id: string;
+  model: string;
+  make: string;
+  year: string;
+  coverURL: string;
+  starred?: boolean;
 }
 
 const CardListItem: React.FC<CarProps> = (car: CarProps) => {
   const star = useSelector<RootStateOrAny>((state) => {
-    return state.star.starred[car.id]
-  })
-  const dispatch = useDispatch()
+    return state.star.starred[car.id];
+  });
+  const dispatch = useDispatch();
 
   const _toggleStar = () => {
-    dispatch(toggleStar(car.id))
-  }
+    dispatch(toggleStar(car.id));
+  };
 
   return (
-    <Card>
+    <Card
+      style={{
+        shadowOffset: {
+          width: 0,
+          height: 5,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 20,
+
+        elevation: 20,
+      }}
+    >
       <Cover source={car.coverURL} />
       <Details>
         <Header>
@@ -51,7 +62,7 @@ const CardListItem: React.FC<CarProps> = (car: CarProps) => {
         </MakeYear>
       </Details>
     </Card>
-  )
-}
+  );
+};
 
-export default CardListItem
+export default CardListItem;

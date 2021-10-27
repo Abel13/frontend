@@ -5,14 +5,7 @@ import { Colors, Spacing } from "../../styles";
 
 export const Card = styled.View`
   background-color: ${Colors.cardColor};
-  /* marginhorizontal: ${Spacing.padding}px;
-  shadowoffset: {
-    width: 0;
-    height: 5;
-  }
-  shadowopacity: 0.25;
-  shadowradius: 20px;
-  elevation: 2; */
+  margin: 0 ${Spacing.padding}px;
 `;
 
 export const Details = styled.View`
@@ -22,23 +15,23 @@ export const Details = styled.View`
 export const Header = styled.View`
   flex-direction: row;
   justify-content: space-between;
-  /* paddingvertical: ${Spacing.extraMargin}px; */
+  padding: ${Spacing.extraMargin}px 0px;
 `;
 
 export const Model = styled.Text`
   color: ${Colors.textColor};
   font-size: 30px;
-  /* fontFamily: Arial; */
+  font-family: "Arial";
 `;
 
 export const Line = styled.View`
   height: 1px;
   background-color: ${Colors.divisorColor};
-  /* marginvertical: ${Spacing.extraMargin}px; */
+  margin: ${Spacing.extraMargin}px 0px;
 `;
 
 export const MakeYear = styled.Text`
-  /* paddingvertical: ${Spacing.extraMargin}px; */
+  padding: ${Spacing.extraMargin}px 0px;
 `;
 
 export const StarIcon = styled(AntDesign).attrs((props) => ({

@@ -5,10 +5,9 @@ import { Colors, Spacing } from "../../styles";
 export const Title = styled.Text`
   color: ${Colors.textColor};
   font-size: 36px;
-  /* fontFamily: Arial; */
+  font-family: "Arial";
   font-weight: bold;
-  /* paddinghorizontal: ${Spacing.padding}px;
-  paddingvertical: ${3 * Spacing.padding}px; */
+  padding: ${3 * Spacing.padding}px ${Spacing.padding}px;
 `;
 
 export const Space = styled.View`

@@ -1,26 +1,37 @@
-import React from 'react'
+import React, { useEffect } from "react";
+import { ImageProps, View } from "react-native";
 // import { Spacing } from '../../styles'
-import { useScreenDimensions } from '../../hooks/useScreenDimensions'
+import { useScreenDimensions } from "../../hooks/useScreenDimensions";
+import BASE_URL from "../../services/api";
 
-import { Image } from './styles'
+import { Container, Image } from "./styles";
 
-interface Props {
-  source: string
+export interface CoverProps {
+  source: string;
+}
+
+export interface ContainerProps {
+  customHeight: number;
 }
 
 // Cover has to fill the whole card area.
-const Cover = ({ source }: Props) => {
-  const size = useScreenDimensions()
+const Cover = ({ source }: CoverProps) => {
+  const [calculatedSize, setCalculatedSize] = React.useState<number>(100);
+  const size = useScreenDimensions();
+
+  useEffect(() => {
+    setCalculatedSize(size.width * 0.67);
+  }, [size]);
 
   return (
-    <Image
-      source={{ uri: source }}
-      style={{
-        width: size.width,
-        height: size.width * 0.67,
-      }}
-    />
-  )
-}
+    <Container customHeight={calculatedSize}>
+      <Image
+        resizeMode="cover"
+        resizeMethod="auto"
+        source={{ uri: BASE_URL + source }}
+      />
+    </Container>
+  );
+};
 
-export default Cover
+export default Cover;
