@@ -13,16 +13,17 @@ type DetailsScreenNavigationProp = NativeStackNavigationProp<
 
 const Garage: React.FC = () => {
   const [data, setData] = useState([]);
+  const [nextPage, setNextPage] = useState(1);
 
   const navigation = useNavigation<DetailsScreenNavigationProp>();
 
   useEffect(() => {
     const updateData = async () => {
-      const res = await getList();
-      setData(res.items);
+      const res = await getList({ page: nextPage });
+      setData(res);
     };
     updateData();
-  }, []);
+  }, [nextPage]);
 
   const itemPressed = (item: any) => {
     navigation.navigate("Details", { car: item });
@@ -50,6 +51,8 @@ const Garage: React.FC = () => {
 
   return (
     <List
+      onEndReached={() => setNextPage(nextPage + 1)}
+      onEndReachedThreshold={0.1}
       data={data}
       keyExtractor={(item: any) => {
         return item.id;
