@@ -1,14 +1,7 @@
 import styled from "styled-components/native";
-import { AntDesign } from "@expo/vector-icons";
-
 import { Colors, Spacing } from "../../styles";
 
-export const Card = styled.View`
-  background-color: ${Colors.cardColor};
-  margin: 0 ${Spacing.padding}px;
-`;
-
-export const Details = styled.View`
+export const Container = styled.View`
   padding: ${Spacing.padding}px;
 `;
 
@@ -33,9 +26,3 @@ export const Line = styled.View`
 export const MakeYear = styled.Text`
   padding: ${Spacing.extraMargin}px 0px;
 `;
-
-export const StarIcon = styled(AntDesign).attrs((props) => ({
-  name: props.star ? "star" : "staro",
-  color: props.star ? Colors.starColor : Colors.textColor,
-  size: 24,
-}))``;
