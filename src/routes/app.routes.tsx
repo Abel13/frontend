@@ -1,17 +1,16 @@
 import React from "react";
 import { createSharedElementStackNavigator } from "react-navigation-shared-element";
-
-export type RootStackParamList = {
-  Garage: undefined;
-  Details: { car: Car };
-};
+import GarageScreen from "../screens/Garage";
+import DetailsScreen from "../screens/Details";
+import { CarProps } from "../models/car";
 
 const { Navigator, Screen } =
   createSharedElementStackNavigator<RootStackParamList>();
 
-import GarageScreen from "../screens/Garage";
-import DetailsScreen from "../screens/Details";
-import { Car } from "../models/car";
+export type RootStackParamList = {
+  Garage: undefined;
+  Details: { car: CarProps };
+};
 
 export function AppRoutes() {
   return (
@@ -27,7 +26,7 @@ export function AppRoutes() {
       <Screen
         name="Details"
         component={DetailsScreen}
-        sharedElements={(route, otherRoute, showing) => {
+        sharedElements={(route) => {
           const { car } = route.params;
           return [{ id: `item.${car.id}.photo`, resize: "auto" }];
         }}

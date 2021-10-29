@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch, RootStateOrAny } from "react-redux";
-import { TouchableOpacity, View } from "react-native";
+import { TouchableOpacity } from "react-native";
 
 import { toggleStar } from "../../store/actions";
 
@@ -15,13 +15,12 @@ import {
   MakeYear,
   StarIcon,
 } from "./styles";
-import { Car } from "../../models/car";
+import { CarProps } from "../../models/car";
 import { SharedElement } from "react-navigation-shared-element";
-// import { nodeFromRef, SharedElement } from "react-native-shared-element";
 
 export interface CarListItemProps {
-  car: Car;
-  onPress: (item: Car) => void;
+  car: CarProps;
+  onPress: (item: CarProps) => void;
 }
 
 const CardListItem: React.FC<CarListItemProps> = ({ car, onPress }) => {

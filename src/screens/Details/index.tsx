@@ -1,7 +1,5 @@
 import React from "react";
-import { View } from "react-native";
 import { SharedElement } from "react-navigation-shared-element";
-// import { nodeFromRef, SharedElement } from "react-native-shared-element";
 import Cover from "../../components/Cover";
 
 import { Container, Header, Line, MakeYear, Model } from "./styles";

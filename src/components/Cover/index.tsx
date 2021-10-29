@@ -1,6 +1,4 @@
 import React, { useEffect } from "react";
-import { ImageProps, View } from "react-native";
-// import { Spacing } from '../../styles'
 import { useScreenDimensions } from "../../hooks/useScreenDimensions";
 import BASE_URL from "../../services/api";
 
