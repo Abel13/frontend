@@ -1,11 +1,12 @@
 import React from "react";
-import { Container, StatusBar } from "./src/styles";
+import { Colors, Container, StatusBar } from "./src/styles";
 import { Provider } from "react-redux";
 import { store } from "./src/store";
 
-import Garage from "./src/screens/Garage";
 import { ActivityIndicator } from "react-native";
 import { useFonts } from "expo-font";
+import { NavigationContainer } from "@react-navigation/native";
+import { AppRoutes } from "./src/routes/app.routes";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -17,8 +18,10 @@ export default function App() {
   return (
     <Provider store={store}>
       <Container>
-        <StatusBar />
-        <Garage />
+        <StatusBar backgroundColor={Colors.backgroundColor} />
+        <NavigationContainer>
+          <AppRoutes />
+        </NavigationContainer>
       </Container>
     </Provider>
   );

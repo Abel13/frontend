@@ -1,4 +1,4 @@
-const API_URL = "http://10.0.2.2:3000";
+const API_URL = "http://192.168.0.171:3000";
 
 export const getList = async () => {
   const response = await fetch(API_URL);

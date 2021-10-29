@@ -26,7 +26,7 @@ const Cover = ({ source }: CoverProps) => {
   return (
     <Container customHeight={calculatedSize}>
       <Image
-        resizeMode="cover"
+        resizeMode="stretch"
         resizeMethod="auto"
         source={{ uri: BASE_URL + source }}
       />
